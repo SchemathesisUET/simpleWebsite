@@ -11,6 +11,7 @@ paths:
           name: name
           schema:
             type: string
+            pattern: "^[a-zA-Z]*$"
           required: false
           description: The name to greet
       responses:
@@ -24,6 +25,44 @@ paths:
                   message:
                     type: string
                     example: Hello, World!
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid input
+  /add:
+    get:
+      summary: Returns the sum of two numbers
+      parameters:
+        - in: query
+          name: num1
+          schema:
+            type: integer
+            example: 10
+          required: true
+          description: The first number
+        - in: query
+          name: num2
+          schema:
+            type: integer
+          required: true
+          description: The second number
+      responses:
+        '200':
+          description: The sum of the two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                    example: 20
         '400':
           description: Invalid input
           content:
