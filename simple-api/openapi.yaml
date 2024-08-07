@@ -26,6 +26,8 @@ paths:
                 properties:
                   message:
                     type: string
+        '400':
+          description: Bad Request
     post:
       responses:
         '405':
@@ -54,6 +56,8 @@ paths:
                 properties:
                   result:
                     type: integer
+        '400':
+          description: Bad Request
     post:
       responses:
         '405':
