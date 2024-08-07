@@ -1,3 +1,7 @@
+# application/json only
+# 2 paths: /hello, /add
+# /hello: GET, query parameter name, pattern: "^[a-zA-Z]*$"
+# /add: GET, query parameters num1, num2, integer type, required: true. The example of num1 is 10, num2 generate
 openapi: 3.0.0
 info:
   title: Simple API
@@ -5,18 +9,16 @@ info:
 paths:
   /hello:
     get:
-      summary: Returns a greeting
       parameters:
-        - in: query
-          name: name
+        - name: name
+          in: query
+          required: true
           schema:
             type: string
             pattern: "^[a-zA-Z]*$"
-          required: false
-          description: The name to greet
       responses:
         '200':
-          description: A greeting message
+          description: OK
           content:
             application/json:
               schema:
@@ -24,37 +26,27 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Hello, World!
-        '400':
-          description: Invalid input
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Invalid input
+    post:
+      responses:
+        '405':
+          description: Method Not Allowed
   /add:
     get:
-      summary: Returns the sum of two numbers
       parameters:
-        - in: query
-          name: num1
+        - name: num1
+          in: query
+          required: true
           schema:
             type: integer
             example: 10
+        - name: num2
+          in: query
           required: true
-          description: The first number
-        - in: query
-          name: num2
           schema:
             type: integer
-          required: true
-          description: The second number
       responses:
         '200':
-          description: The sum of the two numbers
+          description: OK
           content:
             application/json:
               schema:
@@ -62,14 +54,7 @@ paths:
                 properties:
                   result:
                     type: integer
-                    example: 20
-        '400':
-          description: Invalid input
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Invalid input
+    post:
+      responses:
+        '405':
+          description: Method Not Allowed
