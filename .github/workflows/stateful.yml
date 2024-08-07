@@ -8,5 +8,5 @@ jobs:
       - name: Default test
         uses: schemathesis/action@v1
         with:
-          schema: 'https://raw.githubusercontent.com/SchemathesisUET/simpleWebsite/main/stateful/openapi.yaml'
+          schema: 'https://raw.githubusercontent.com/SchemathesisUET/simpleWebsite/main/stateful/openapi.json'
           token: ${{ secrets.SCHEMATHESIS_TOKEN }}
