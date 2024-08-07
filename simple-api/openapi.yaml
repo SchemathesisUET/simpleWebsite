@@ -34,6 +34,8 @@ paths:
           description: Forbidden
     post:
       responses:
+      '403':
+          description: Forbidden
         '405':
           description: Method Not Allowed
   /add:
@@ -66,6 +68,8 @@ paths:
           description: Forbidden
     post:
       responses:
+        '403':
+          description: Forbidden
         '405':
           description: Method Not Allowed
   /details:
@@ -124,3 +128,5 @@ paths:
                     type: integer
         '400':
           description: Bad Request
+        '403':
+          description: Forbidden
