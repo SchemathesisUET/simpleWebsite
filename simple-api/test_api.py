@@ -7,8 +7,8 @@ from schemathesis.cli import run
 load_dotenv()
 
 # Use the base URL of your running Flask app
-# schema = schemathesis.from_path("openapi.yaml", base_url="https://simplewebsite-y70r.onrender.com")
-schema = schemathesis.from_path("openapi.yaml", base_url="http://127.0.0.1:5000")
+schema = schemathesis.from_path("openapi.yaml", base_url="https://simplewebsite-y70r.onrender.com")
+# schema = schemathesis.from_path("openapi.yaml", base_url="http://127.0.0.1:5000")
 
 @schema.parametrize()
 def test_api(case):
