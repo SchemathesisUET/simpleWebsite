@@ -49,10 +49,14 @@ def sum():
     if x.isdigit() and y.isdigit():
         x = int(x)
         y = int(y)
+        # if x > 0 and y > 0:
+        #     sum = 0
+        #     for i in range(x, y+1):
+        #         sum += i
+        #     return jsonify({"result": sum})
+        # Using optimaised formula to calculate sum from x to y
         if x > 0 and y > 0:
-            sum = 0
-            for i in range(x, y+1):
-                sum += i
+            sum = (y*(y+1) - x*(x-1))//2
             return jsonify({"result": sum})
         else:
             return jsonify({"message": "Both numbers should be positive integers."}), 400
