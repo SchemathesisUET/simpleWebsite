@@ -24,3 +24,13 @@ paths:
                   message:
                     type: string
                     example: Hello, World!
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid input
