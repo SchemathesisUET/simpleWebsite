@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  example:
+    runs-on: ubuntu-22.04
+    name: Test
+    steps:
+      - name: Default test
+        uses: schemathesis/action@v1
+        with:
+          schema: 'https://raw.githubusercontent.com/SchemathesisUET/simpleWebsite/main/simple-api/openapi.yaml'
+          token: ${{ secrets.SCHEMATHESIS_TOKEN }}

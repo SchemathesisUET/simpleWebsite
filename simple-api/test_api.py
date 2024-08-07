@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 import schemathesis
 from schemathesis.cli import run
-from schemathesis.io import upload
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -25,4 +24,4 @@ if __name__ == "__main__":
         raise ValueError("API key is not set. Please set the SCHEMATHESIS_API_KEY environment variable.")
 
     # Upload results to Schemathesis.io
-    upload(results, api_key=api_key)
+    results.upload(api_key)
