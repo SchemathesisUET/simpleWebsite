@@ -3,7 +3,8 @@ import requests
 import uuid
 
 # Define the base URL for the API
-BASE_URL = "http://localhost:5000"
+# BASE_URL = "http://localhost:5000"
+BASE_URL = "https://simplewebsite-1.onrender.com"
 
 # Load the OpenAPI schema with the base URL
 schema = schemathesis.from_path("openapi.json", base_url=BASE_URL)
